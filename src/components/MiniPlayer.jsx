@@ -1,27 +1,35 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const MiniPlayer = (props) => {
     const [isPlaying, setIsPlaying] = useState(false)
+    const [currentSong, setCurrentSong] = useState(null)
+
+    useEffect(() => {
+        setCurrentSong(new Audio(props.currentSongUrl))
+    }, [props.currentSongUrl])
+    
+    useEffect(() => {
+        if (!props.startRound) {
+            setIsPlaying(false)
+            currentSong.pause()
+        }
+    }, [currentSong, props.startRound])
 
     const playPauseSwitch = () => {
         if (!isPlaying) {
-            props.currentSong.play()
+            currentSong.play()
             setIsPlaying(true)
         }
         else {
-            props.currentSong.pause()
+            currentSong.pause()
             setIsPlaying(false)
         }
     }
-
     return (
         <>
-            <button onClick={playPauseSwitch}>{isPlaying ? "Pause Music" : "Verify Music is loaded"}</button>
-            <p>song length: {props.songDuration}s</p>
-            <p>timer: {props.timer}s</p>
+            <button className="miniPlayer" onClick={playPauseSwitch}>{isPlaying ? "Pause Music" : "click for sound"}</button>
         </>
     )
 }
-
 export default MiniPlayer

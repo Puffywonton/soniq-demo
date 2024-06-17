@@ -8,12 +8,8 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 
+TO DO LIST:
 
-*game starts*
-    - load song
-    - load answers
-    - display answers
-    - play song
-    - timer ?
+- need to get the dynamic song length and timer to work:
+    <p>song length: {props.currentSong.duration.toFixed(0)}s</p>
 
-    *round starts*

@@ -1,0 +1,37 @@
+:root {
+  font-family: "Lato";
+  line-height: 1.5;
+  font-weight: 400;
+  background-color: #e4e4e4;
+}
+
+.iphone-wrapper {
+  width: 390px; /* Width of iPhone 12 */
+  height: 844px; /* Height of iPhone 12 */
+  border: 16px solid black; /* Border to simulate the phone's edges */
+  border-radius: 38px; /* Rounded corners to match iPhone's design */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Shadow for a more realistic look */
+  position: relative;
+  margin: 20px auto; /* Center the phone horizontally */
+  background-color: white; /* Background color for the phone */
+}
+
+.iphone-screen {
+  width: 100%;
+  height: 100%;
+  border-radius: 22px; /* Inner screen border radius */
+  overflow: hidden; /* Clip the content inside the screen */
+  background-color: #f8f8f8; /* Screen background color */
+}
+
+.notch {
+  width: 210px; /* Approximate width of the notch */
+  height: 30px; /* Approximate height of the notch */
+  background-color: black;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
