@@ -14,7 +14,8 @@ const QuizCard = () => {
         dispatch({ type: 'SELECT_ANSWER', payload: answerId})
     }
 
-    const handleNextButton = () => {
+    const handleNextButton = (e) => {
+        e.preventDefault()
         dispatch({ type: 'NEXT_QUESTION'})
     }
 
@@ -36,13 +37,15 @@ const QuizCard = () => {
                         {quizState.score} points
                     </div>
                 </div>
-                <div>{currentQuestion.question}</div>
                 <Timer
                     questionNumber={quizState.currentQuestionIndex}
                     setRoundOver={() => { dispatch({ type: 'QUESTION_TIMEOUT' }) }}
                     startRound={quizState.startRound}
+                    currentAnswer={quizState.currentAnswer}
+                    correctAnswerId={currentQuestion.correctAnswer.songId}                    
                 />
-                <div className="answers">
+                <div className="quizCard__question">{currentQuestion.question}</div>                
+                <div className="quizCard__answers">
                     {quizState.answers.map((answer, index) => (
                         <Answer
                             answer={answer}
@@ -54,9 +57,10 @@ const QuizCard = () => {
                         />
                     ))}
                 </div>
-                <div className="next-button" onClick={handleNextButton}>
+
+                <button className="dev__nextButton" onClick={handleNextButton}>
                     next question
-                </div>
+                </button>
             </div>                   
         </>
     )

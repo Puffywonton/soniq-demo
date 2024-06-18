@@ -13,8 +13,11 @@ const Answer = (props) => {
 
     return (
         <div key={props.index} className={`answer ${correctAnswerClass} ${wrongAnswerClass} ${disabledClass}`} onClick={handleClick} id={props.answer.songId}>
-            <div className="answer-title">{props.answer.songTitle}</div>
-            <div className="answer-artist">by {props.answer.songArtist}</div>
+            <div className="answer__body">
+                <span className="answer__body__title">{props.answer.songTitle}</span>
+                <span className="answer__body__artist"> by {props.answer.songArtist}</span>
+            </div>
+            
         </div>
     )
 }

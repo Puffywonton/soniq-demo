@@ -14,95 +14,220 @@
   width: 50%
 }
 
-.startMenu-button{
+.button{
+  transition: 0.2s;
+  background-color: #40B8D5;
+  border: none;
+  border-radius: 32px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   cursor: pointer;
   width: 50%;
-  background-color: white;
-  color: black;
-  font-size: large;
+  color: white;
+  font-size: 24px;
   border-radius: 20px;
   padding: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
   &:hover{
-    background-color: black;
+    background-color: #00A2C9;
     color: white
   }
 }
 
-
-.miniPlayer{
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-
 .quizCard{
-  background-color: white;
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  margin-top: 32px;
-  padding-top: 16px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
   &__header{
+    padding-top: 16px;
+    margin-top: 32px;
     display: flex;
     justify-content: space-between;
     &__logo{
-      width: 40%;
+      width: 33%;
     }
     &__questionNumber{
       display: flex;
+      justify-content: start;
       align-items: center;
       margin-left: 12px;
+      width: 33%;
     }
     &__score{
+      width: 33%;
+      justify-content: end;
       display: flex;
       align-items: center;
       margin-right: 12px
     }
   }
-
-}
-
-
-.card {
-  padding: 2em;
-}
-
-
-.answer.correct{
-  color: green
-}
-
-.answer.wrong{
-  color: red
-}
-
-.answer.disabled{
-  pointer-events:none
-}
-
-
-.answers{
-  display: flex;
-  flex-wrap: wrap;
+  &__question{
+    width: 80%;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+  }
+  &__answers{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    gap: 18px;
+    padding-top: 32px;
+    padding-bottom: 128px;
+  }  
 }
 
 .answer {
-  background-color: lightgray;
-  padding: 6px;
-  margin: 6px;
-  color: black;
+  transition: 0.2s;
+  background-color: #F3F3F3;
+  &:hover{
+    background-color: #00A2C9;
+    color: white
+  }  
+  border-radius: 32px;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   cursor: pointer;
+  &__body{
+    padding: 12px;
+    display: inline;
+    text-align: center;
+    &__artist{
+      font-size: 12px;
+      font-weight: 700;
+    }
+    &__title{
+      font-size: 16px;
+    }
+  }
+  &.correct.disabled{
+    background-color: #40B8D5;
+    color: white
+  }
+  &.wrong.disabled{
+    background-color: #CE4988;
+    color: white;
+  }
+  &.disabled{
+    pointer-events: none;
+    color: lightgray;
+  }
+}
+
+.timer{
+  position: relative;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 150px;
+  &__circle{
+    position: relative;
+    width: 150px;
+    height: 150px;
+    transform: rotate(270deg);
+    circle{
+      width: 100%;
+      height: 100%;
+      fill: transparent;
+      stroke-width: 8;
+      transform: translate(5px, 5px);
+    }
+    &__first{
+      stroke: #F3F3F3;
+     
+    }
+    &__second{
+      stroke: #40B8D5;
+      stroke-dasharray: 440;
+      stroke-dashoffset: 440;
+      transition: stroke-dashoffset 1s linear;
+
+    }
+  }
+  &__display{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 62px;
+    img{
+      width: 80px;
+      height: 80px;
+    }
+  }  
+}
+
+.final-countdown{
+  box-shadow: 0 0 0 0 rgba(155, 22, 102, 0.5);
+  animation: pulse 1s infinite cubic-bezier(0, 0, 0, 1);;   
+}
+@keyframes pulse {to {box-shadow: 0 0 0 25px rgba(180, 15, 114, 0);}}
+
+.gameover{
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 32px;  
+  &__title{
+    font-size: 38px;
+    font-weight: 700
+  }
+  &__picture{
+    width: 50%;
+  }
+  &__scoreboard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__text{
+      font-size: 24px;
+    }
+    &__score{
+      display: flex;
+      justify-content: center;
+      font-size: 36px;
+      font-weight: 700;
+      &__star{
+        width: 48px;
+      }      
+    }
+
+  }
 }
 
 
-.next-button{
+
+.dev__timerFeedback{
+  position: fixed;
+  top: 0px;
+  left: 120px;
+  margin: 0px;
+  color: red;
+}
+
+.dev__nextButton{
+  position: fixed;
+  top: 0;
+  right: 0;
   margin: auto;
-  width: 140px;
-  padding: 6px;
-  background-color: pink;
-  border-radius: 12px;
-  color: green;
-  cursor: pointer;
+}
+
+.miniPlayer{
+  position: fixed;
+  top: 0;
+  left: 0;
 }

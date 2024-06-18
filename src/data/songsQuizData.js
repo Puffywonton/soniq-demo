@@ -58,17 +58,17 @@ const songsQuizData = [
         question: "What is this famous song from 2006?",
         incorrectAnswers: [
             {
-                songTitle: "pinball",
+                songTitle: "pinball wizard",
                 songArtist: "The who",
                 songId: 25
             },
             {
-                songTitle: "he plays by intuation",
+                songTitle: "he plays by intuition",
                 songArtist: "who again?",
                 songId: 654
             },
             {
-                songTitle: "how do you think he done it",
+                songTitle: "how do you think he does it",
                 songArtist: "what makes him so good",
                 songId: 766
             },

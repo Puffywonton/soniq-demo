@@ -2,13 +2,14 @@
 
 import { useEffect, useState } from "react"
 
-const Timer = ({setRoundOver, startRound}) => {
-    const [timer, setTimer] = useState(5)
+const Timer = ({ setRoundOver, startRound, currentAnswer, correctAnswerId,  }) => {
+    const timerPreset = 10
+    const [timer, setTimer] = useState(timerPreset)
 
     useEffect(() => {
         if (startRound) {
-            if (timer === 0) {
-                setTimer(5)
+            if (timer === -1) {
+                setTimer(timerPreset)
                 return setRoundOver(true)
             } 
             const interval = setInterval(() => {
@@ -16,17 +17,47 @@ const Timer = ({setRoundOver, startRound}) => {
             }, 1000)
             return () => clearInterval(interval)
         } else {
-            setTimer(5)
+            setTimer(timerPreset)
         }
         
     }, [setRoundOver, timer, startRound])
 
+    const strokeDashoffset = 440 * (timer / timerPreset)
+    const isFinalCountdown = timer < 5 ? 'final-countdown' : ''
+
+    const isCorrectAnswer = correctAnswerId == currentAnswer
+
     return (
-        <div>
-            <p>timer left: {timer}s</p>
-            <p> {!startRound ? "TIMEOUT // ANSWER SELECTED" : ""} </p>
+        <div className={`timer ${isFinalCountdown}`}>
+            <svg className="timer__circle">
+                <circle className="timer__circle__first" cx="70" cy="70" r="70"></circle>
+                <circle
+                    className="timer__circle__second"
+                    cx="70"
+                    cy="70"
+                    r="70"
+                    style={{ strokeDashoffset }}
+                ></circle>
+            </svg>
+            <div className="timer__display">
+                {startRound && timer < timerPreset ?
+                    <div className="timer__display__number">{timer + 1}</div>
+                : ""}
+                {startRound && timer == timerPreset ?
+                    <div className="timer__display__go">GO</div>
+                : ""}
+                {!startRound && isCorrectAnswer ?
+                    <img className="timer__display__correct" src="../../public/pictures/correct.svg" alt="correct" />
+                : ""}
+                {!startRound && !isCorrectAnswer ?
+                    <img className="timer__display__wrong" src="../../public/pictures/wrong.svg" alt="wrong" />
+                : ""}
+            </div>
+            <p className="dev__timerFeedback"> {!startRound ? "TIMEOUT // ANSWER SELECTED" : ""} </p> 
         </div>
     )
 }
+
+// don't forget to remove timerFeedback
 
 export default Timer

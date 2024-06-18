@@ -1,5 +1,6 @@
 import { useContext } from "react"
 import { QuizContext } from "../contexts/quiz"
+import Button from "./Button"
 
 /* eslint-disable react/prop-types */
 const StartMenu = () => {
@@ -13,7 +14,10 @@ const StartMenu = () => {
     return (
         <div className="startMenu">
             <img className="startMenu-logo" src="../../public/pictures/SoniqFullLogo.jpeg" alt="logo" />
-            <button className="startMenu-button" onClick={handleClick}>Start Game</button>
+            <Button
+                handleClick={handleClick}
+                text="Start Game"
+            />
         </div>
     )
 }
