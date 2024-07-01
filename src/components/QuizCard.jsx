@@ -3,6 +3,7 @@ import { QuizContext } from "../contexts/quiz"
 import Answer from "./Answer"
 import MiniPlayer from "../components/MiniPlayer"
 import Timer from "./Timer"
+import Dialog from "./Dialog"
 
 /* eslint-disable react/prop-types */
 const QuizCard = () => {
@@ -57,7 +58,7 @@ const QuizCard = () => {
                         />
                     ))}
                 </div>
-
+                
                 <button className="dev__nextButton" onClick={handleNextButton}>
                     next question
                 </button>

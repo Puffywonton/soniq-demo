@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { QuizContext } from "../contexts/quiz"
 import Button from "./Button"
+import ShareBox from "./ShareBox"
 
 /* eslint-disable react/prop-types */
 const GameOver = () => {
@@ -11,6 +12,7 @@ const GameOver = () => {
         dispatch({type: 'RESTART_GAME'})
     }
     
+
     return (
         <div className="gameover">
             <div className="gameover__title">GAME OVER</div>
@@ -22,10 +24,14 @@ const GameOver = () => {
                     <img className="gameover__scoreboard__score__star" src="../../public/pictures/gameover-star.svg" alt="star" />
                 </div>
             </div>
-            <Button
-                handleClick={handleClick}
-                text="Main Menu"
-            />
+            <ShareBox />
+            <div className="gameover__bottom-nav">
+                <Button
+                    handleClick={handleClick}
+                    text="Main Menu"
+                />
+            </div>
+            
         </div>
     )
 }

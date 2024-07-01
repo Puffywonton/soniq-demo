@@ -13,11 +13,12 @@ const StartMenu = () => {
 
     return (
         <div className="startMenu">
-            <img className="startMenu-logo" src="../../public/pictures/SoniqFullLogo.jpeg" alt="logo" />
+            <img className="startMenu-logo" src="../../public/pictures/logo_soniq.png" alt="logo" />
             <Button
                 handleClick={handleClick}
                 text="Start Game"
             />
+            <p>simple catch phrase</p>
         </div>
     )
 }

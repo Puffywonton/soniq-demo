@@ -44,13 +44,13 @@ const Timer = ({ setRoundOver, startRound, currentAnswer, correctAnswerId,  }) =
                     <div className="timer__display__number">{timer + 1}</div>
                 : ""}
                 {startRound && timer == timerPreset ?
-                    <div className="timer__display__go">GO</div>
+                    <div className="timer__display__go go-animation">GO</div>
                 : ""}
                 {!startRound && isCorrectAnswer ?
-                    <img className="timer__display__correct" src="../../public/pictures/correct.svg" alt="correct" />
+                    <img className="timer__display__correct result-animation" src="../../public/pictures/correct.svg" alt="correct" />
                 : ""}
                 {!startRound && !isCorrectAnswer ?
-                    <img className="timer__display__wrong" src="../../public/pictures/wrong.svg" alt="wrong" />
+                    <img className="timer__display__wrong result-animation" src="../../public/pictures/wrong.svg" alt="wrong" />
                 : ""}
             </div>
             <p className="dev__timerFeedback"> {!startRound ? "TIMEOUT // ANSWER SELECTED" : ""} </p> 

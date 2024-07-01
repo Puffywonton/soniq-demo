@@ -13,3 +13,19 @@ TO DO LIST:
 - need to get the dynamic song length and timer to work:
     <p>song length: {props.currentSong.duration.toFixed(0)}s</p>
 
+
+
+quizpage button on quiz
+
+-share button on homepage as well\
+    just share link
+and on gameover sahre with score
+
+
+
+
+
+
+switch up the star + trophy
+add share button widget
+

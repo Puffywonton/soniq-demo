@@ -1,14 +1,14 @@
 /* eslint-disable react/prop-types */
 import { createContext, useReducer } from "react";
 import questions from "../data/songsQuizData"
-import { shuffleAnswers } from "../helpers";
+import { shuffleAnswers, handleModal } from "../helpers";
 
 const initialState = {
     questions,
     currentQuestionIndex: 0,
     startGame: false,
     startRound: false,
-    gameOver: false,
+    gameOver: true,
     score: 0,
     answers: shuffleAnswers(questions[0]),
     currentAnswer: null,
@@ -20,6 +20,7 @@ const reducer = (state, action) => {
             const selectedAnswer = action.payload
             const correctAnswer = state.questions[state.currentQuestionIndex].correctAnswer.songId
             const score = selectedAnswer == correctAnswer ? state.score + 1 : state.score
+            // handleModal()
             return {
                 ...state,
                 currentAnswer: action.payload,

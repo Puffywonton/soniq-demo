@@ -1,5 +1,13 @@
+import { useEffect, useState } from "react"
+
 /* eslint-disable react/prop-types */
 const Answer = (props) => {
+    // const [hasAnswered , setHasAnswered] = useState(false)
+    // useEffect(() => {
+        
+
+    // }, [])
+
     const handleClick = (event) => {
         props.onClick(event.currentTarget)
     }
