@@ -10,8 +10,6 @@ import GenreSelection from './components/GenreSelection'
 
 function App() {
   const [quizState, dispatch] = useContext(QuizContext)
-  // console.log(quizState)
-  // let audioElement = new Audio('../../public/songs/songPlaceholder.mp3')
 
   return (
     <>

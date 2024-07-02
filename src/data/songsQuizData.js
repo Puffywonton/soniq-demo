@@ -2,7 +2,7 @@
 
 const songsQuizData = [
     {
-        url: '../../public/songs/songPlaceholder.mp3',
+        url: '../../soniq-demo/src/assets/songs/songPlaceholder.mp3',
         question: "What is this famous song from 1979?",
         incorrectAnswers: [
             {
@@ -28,7 +28,7 @@ const songsQuizData = [
         }
     },
     {
-        url: '../../public/songs/songPlaceholder2.mp3',
+        url: '../../soniq-demo/src/assets/songs/songPlaceholder2.mp3',
         question: "What is this famous song from 2013?",
         incorrectAnswers: [
             {
@@ -54,7 +54,7 @@ const songsQuizData = [
         }
     },
     {
-        url: '../../public/songs/songPlaceholder3.mp3',
+        url: '../../soniq-demo/src/assets/songs/songPlaceholder3.mp3',
         question: "What is this famous song from 2006?",
         incorrectAnswers: [
             {

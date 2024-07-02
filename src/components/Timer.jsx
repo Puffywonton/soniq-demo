@@ -50,10 +50,10 @@ const Timer = ({ setRoundOver, startRound, currentAnswer, correctAnswerId, goNex
                     <div className="timer__display__go go-animation">GO</div>
                 : ""}
                 {!startRound && isCorrectAnswer ?
-                    <img className="timer__display__correct result-animation" src="../../public/pictures/correct.svg" alt="correct" />
+                    <img className="timer__display__correct result-animation" src="../../soniq-demo/src/assets/pictures/correct.svg" alt="correct" />
                 : ""}
                 {!startRound && !isCorrectAnswer ?
-                    <img className="timer__display__wrong result-animation" src="../../public/pictures/wrong.svg" alt="wrong" />
+                    <img className="timer__display__wrong result-animation" src="../../soniq-demo/src/assets/pictures/wrong.svg" alt="wrong" />
                 : ""}
             </div>
             <p className="dev__timerFeedback"> {!startRound ? "TIMEOUT // ANSWER SELECTED" : ""} </p> 

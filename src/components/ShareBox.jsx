@@ -65,7 +65,7 @@ const ShareBox = (props) => {
                     <div className="sharebox__link-container__title">Page Link</div>
                     <div className="sharebox__link-container__link">
                         <p>https://www.soniq.com</p>
-                        <img className="sharebox__link-container__link__copy-icon" src="../../public/pictures/copy.svg" alt="copy" />
+                        <img className="sharebox__link-container__link__copy-icon" src="../../soniq-demo/src/assets/pictures/copy.svg" alt="copy" />
                     </div>
                 </div>  
             : ''}

@@ -20,7 +20,7 @@ const StartMenu = () => {
 
     return (
         <div className="startMenu">
-            <img className="startMenu__logo" src="../../public/pictures/logo_soniq.png" alt="logo" />
+            <img className="startMenu__logo" src="../../soniq-demo/src/assets/pictures/logo_soniq.png" alt="logo" />
             <p>test your musical knowledge in a music quiz</p>
             {shareDialog ? <Dialog handleClick={handleShareDialog} /> : "" }
             <div className="startMenu__nav-buttons">

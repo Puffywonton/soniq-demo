@@ -45,7 +45,7 @@ const QuizCard = () => {
                     <div className="quizCard__header__questionNumber">
                         {quizState.currentQuestionIndex + 1} / {quizState.questions.length}
                     </div>
-                    <img className="quizCard__header__logo" src="../../public/pictures/logo-text.jpg" alt="logo-text"  onClick={handleHomeButton}/>
+                    <img className="quizCard__header__logo" src="../../soniq-demo/src/assets/pictures/logo-text.jpg" alt="logo-text"  onClick={handleHomeButton}/>
                     <div className="quizCard__header__score">
                         {quizState.score} points
                     </div>

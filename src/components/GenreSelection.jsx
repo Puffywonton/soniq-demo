@@ -26,7 +26,7 @@ const GenreSelection = () => {
 
     return (
         <div className="genre-selection">
-            <img className="genre-selection__logo" src="../../public/pictures/logo-text.jpg" alt="logo-text" />
+            <img className="genre-selection__logo" src="../../soniq-demo/src/assets/pictures/logo-text.jpg" alt="logo-text" />
             <h1 className="genre-selection__title">Select the genre</h1>
             <ul className="genre-selection__list">
                 {genreList}
