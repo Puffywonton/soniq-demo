@@ -18,13 +18,13 @@ const GameOver = () => {
             <div className="gameover__title">GAME OVER</div>
             <img className="gameover__picture" src="../../public/pictures/gameover-trophy.svg" alt="trophy" />
             <div className="gameover__scoreboard">
-                <span className="gameover__scoreboard__text">You scored</span>
+                <span className="gameover__scoreboard__text">You scored </span>
                 <div className="gameover__scoreboard__score">
                     {quizState.score}
                     <img className="gameover__scoreboard__score__star" src="../../public/pictures/gameover-star.svg" alt="star" />
                 </div>
             </div>
-            <ShareBox />
+            <ShareBox gameOver={true} score={quizState.score} />
             <div className="gameover__bottom-nav">
                 <Button
                     handleClick={handleClick}

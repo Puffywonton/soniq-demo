@@ -1,31 +1,34 @@
 /* eslint-disable react/prop-types */
 import { createContext, useReducer } from "react";
 import questions from "../data/songsQuizData"
-import { shuffleAnswers, handleModal } from "../helpers";
+import { shuffleAnswers } from "../helpers";
 
 const initialState = {
     questions,
     currentQuestionIndex: 0,
     startGame: false,
     startRound: false,
-    gameOver: true,
+    gameOver: false,
+    setupGame: false,
+    genreSelected: null,
     score: 0,
     answers: shuffleAnswers(questions[0]),
     currentAnswer: null,
-    currentSongUrl: null
+    currentSongUrl: null,
 }
+
 const reducer = (state, action) => {
     switch (action.type) {
         case "SELECT_ANSWER": {
             const selectedAnswer = action.payload
             const correctAnswer = state.questions[state.currentQuestionIndex].correctAnswer.songId
             const score = selectedAnswer == correctAnswer ? state.score + 1 : state.score
-            // handleModal()
+            
             return {
                 ...state,
                 currentAnswer: action.payload,
                 score: score,
-                startRound: false
+                startRound: false,
             }
         }
         case "NEXT_QUESTION": {
@@ -40,13 +43,15 @@ const reducer = (state, action) => {
                 answers,
                 currentAnswer: null,
                 startRound: true,
-                currentSongUrl: currentSongUrl
+                currentSongUrl: currentSongUrl,
+                timer: null
             }
         }
         case "QUESTION_TIMEOUT": {
+            
             return {
                 ...state,
-                startRound: false
+                startRound: false,
             }
         }
         case "RESTART_GAME": {
@@ -64,7 +69,14 @@ const reducer = (state, action) => {
                 gameOver,
                 startGame,
                 startRound,
-                currentSongUrl: currentSongUrl
+                currentSongUrl: currentSongUrl,
+                setupGame: false
+            }
+        }
+        case "SETUP_GAME": {
+            return {
+                ...state,
+                setupGame: true,
             }
         }
         default:

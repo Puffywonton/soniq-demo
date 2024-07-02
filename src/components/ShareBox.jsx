@@ -13,15 +13,15 @@ import {
 } from "react-share"
 
 const ShareBox = (props) => {
-    const shareUrl = "www.google.com"
-    const message = !props.gameOver ? `I just scored ${props.score}, can you beat my score?` : `Check out this music quiz`
+    const shareUrl = "www.soniq.com"
+    const message = props.gameOver ? `I just scored ${props.score} on a Soniq quiz, can you beat my score?` : `Check out this music quiz`
     const size = 40
 
     return (
         <div className="sharebox">
             <div className="sharebox__header">
                 <div className="sharebox__header__title">Share with your friend</div>
-                {!props.gameOver ? <button className="sharebox__header__closeButton">&#x2715;</button> : ''}
+                {!props.gameOver ? <button onClick={props.handleClick} className="sharebox__header__closeButton">&#x2715;</button> : ''}
             </div>
             <div className="sharebox__some-network">
                 <FacebookShareButton
@@ -60,13 +60,16 @@ const ShareBox = (props) => {
                     <WhatsappIcon size={size} round />
                 </WhatsappShareButton>            
             </div>
-            <div className="sharebox__link-container">
-                <div className="sharebox__link-container__title">Page Link</div>
-                <div className="sharebox__link-container__link">
-                    <p>https://www.soniq.com</p>
-                    <img className="sharebox__link-container__link__copy-icon" src="../../public/pictures/copy.svg" alt="copy" />
-                </div>
-            </div>
+            {!props.gameOver ?
+                <div className="sharebox__link-container">
+                    <div className="sharebox__link-container__title">Page Link</div>
+                    <div className="sharebox__link-container__link">
+                        <p>https://www.soniq.com</p>
+                        <img className="sharebox__link-container__link__copy-icon" src="../../public/pictures/copy.svg" alt="copy" />
+                    </div>
+                </div>  
+            : ''}
+
         </div>
     )
 }

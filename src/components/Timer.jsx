@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 
-const Timer = ({ setRoundOver, startRound, currentAnswer, correctAnswerId,  }) => {
+const Timer = ({ setRoundOver, startRound, currentAnswer, correctAnswerId, goNext }) => {
     const timerPreset = 10
     const [timer, setTimer] = useState(timerPreset)
 
@@ -10,7 +10,10 @@ const Timer = ({ setRoundOver, startRound, currentAnswer, correctAnswerId,  }) =
         if (startRound) {
             if (timer === -1) {
                 setTimer(timerPreset)
-                return setRoundOver(true)
+                return () => {
+                    setRoundOver(true)
+                    goNext()
+                }
             } 
             const interval = setInterval(() => {
                 setTimer(prev=>prev-1)
@@ -20,7 +23,7 @@ const Timer = ({ setRoundOver, startRound, currentAnswer, correctAnswerId,  }) =
             setTimer(timerPreset)
         }
         
-    }, [setRoundOver, timer, startRound])
+    }, [setRoundOver, timer, startRound, goNext])
 
     const strokeDashoffset = 440 * (timer / timerPreset)
     const isFinalCountdown = timer < 5 ? 'final-countdown' : ''

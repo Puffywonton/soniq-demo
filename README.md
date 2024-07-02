@@ -15,17 +15,5 @@ TO DO LIST:
 
 
 
-quizpage button on quiz
 
--share button on homepage as well\
-    just share link
-and on gameover sahre with score
-
-
-
-
-
-
-switch up the star + trophy
-add share button widget
 

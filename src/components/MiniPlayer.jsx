@@ -12,7 +12,14 @@ const MiniPlayer = (props) => {
     useEffect(() => {
         if (!props.startRound) {
             setIsPlaying(false)
-            currentSong.pause()
+            if (currentSong) {
+                currentSong.pause()
+            }
+            setCurrentSong(null)
+        }
+        if (props.startRound && currentSong) {
+            setIsPlaying(true)
+            currentSong.play()
         }
     }, [currentSong, props.startRound])
 

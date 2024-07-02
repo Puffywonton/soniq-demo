@@ -12,9 +12,9 @@ export const shuffleAnswers = (question) => {
 
 
 
-export const handleModal = () => {
-    document.getElementById('dialogBox').showModal()
-    setTimeout(() => {
-        document.getElementById('dialogBox').close()
-    }, "100500")
-}
+// export const handleModal = () => {
+//     document.getElementById('dialogBox').showModal()
+//     setTimeout(() => {
+//         document.getElementById('dialogBox').close()
+//     }, "100500")
+// }

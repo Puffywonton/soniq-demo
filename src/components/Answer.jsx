@@ -1,18 +1,15 @@
-import { useEffect, useState } from "react"
+
 
 /* eslint-disable react/prop-types */
 const Answer = (props) => {
-    // const [hasAnswered , setHasAnswered] = useState(false)
-    // useEffect(() => {
-        
-
-    // }, [])
-
     const handleClick = (event) => {
         props.onClick(event.currentTarget)
     }
-
-    const isCorrectAnswer = ( props.currentAnswer || !props.startRound ) && props.correctAnswerId == props.answer.songId
+    const isCorrectAnswer = (props.currentAnswer || !props.startRound) && props.correctAnswerId == props.answer.songId
+    console.log('a', props.currentAnswer)
+    console.log('b', props.startRound)
+    console.log('c', props.correctAnswerId)
+    console.log('d', props.answer.songId)
     const isWrongAnswer = props.currentAnswer == props.answer.songId && props.currentAnswer != props.correctAnswerId
 
     const correctAnswerClass = isCorrectAnswer ? 'correct' : ''

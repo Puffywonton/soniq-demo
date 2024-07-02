@@ -8,11 +8,24 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  &__nav-buttons{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+  &__logo{
+    width: 50%;
+  }
+  p{
+    display: block;
+    width: 50%;
+    text-align: center;
+    font-size: 1rem;  
+  }
 }
 
-.startMenu-logo{
-  width: 50%
-}
 
 .button{
   transition: 0.2s;
@@ -50,6 +63,7 @@
     justify-content: space-between;
     &__logo{
       width: 33%;
+      cursor: pointer;
     }
     &__questionNumber{
       display: flex;
@@ -197,12 +211,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 12px;
     &__text{
       font-size: 24px;
     }
     &__score{
       display: flex;
       justify-content: center;
+      gap: 12px;
       font-size: 36px;
       font-weight: 700;
       &__star{
@@ -332,12 +348,16 @@
   &__header{
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    position: relative;
     &__title{
       font-size: 1.5rem;
       font-weight: 400;
     }
     &__closeButton{
+      position: absolute;
+      top: -45px;
+      right: -10px;
       background-color: #F3F3F3;
       width: 40px;
       height: 40px;
@@ -345,6 +365,11 @@
       border: none;
       font-size: 0.8rem;
       font-weight: 600;
+      cursor: pointer;
+      &:hover{
+        background-color: #40B8D5;
+        color: white;
+      }
     }
   }
   &__some-network{
@@ -385,6 +410,37 @@
           color: white;
         }
       }
+    }
+  }
+}
+
+
+.genre-selection{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &__logo{
+    width: 33%;
+  }
+  &__title{
+    font-size: 2rem;
+    margin-top: 40px;
+  }
+  &__list{
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__item{
+      width: 100%;
+      margin: 8px;
+      list-style-type: none;
+      display: flex;
+      justify-content: center;
     }
   }
 }
